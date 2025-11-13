@@ -1,13 +1,26 @@
 """Консольный калькулятор топлива."""
 
+
+def _get_positive_float(prompt: str) -> float:
+    while True:
+        raw_value = input(prompt)
+        try:
+            value = float(raw_value)
+        except ValueError:
+            print("Ошибка: нужно вводить числовые значения.")
+            continue
+
+        if value <= 0:
+            print("Значение должно быть больше нуля. Попробуйте снова.")
+            continue
+
+        return value
+
+
 def main() -> None:
-    try:
-        distance = float(input("Введите расстояние в километрах: "))
-        consumption = float(input("Введите расход (л/100 км): "))
-        price = float(input("Введите цену за литр: "))
-    except ValueError:
-        print("Ошибка: нужно вводить числовые значения.")
-        return
+    distance = _get_positive_float("Введите расстояние в километрах: ")
+    consumption = _get_positive_float("Введите расход (л/100 км): ")
+    price = _get_positive_float("Введите цену за литр: ")
 
     liters_needed = distance * consumption / 100
     total_cost = liters_needed * price
