@@ -1,0 +1,121 @@
+/* Стиль основного раздела Тренинги */
+
+.stream-table
+
+{
+    --min-width: 320px;  /*ширина плитки в пикселях*/
+    --height: 150px; /*высота плитки в пикселях*/
+    --color: #FFFFFF; /*цвет*/
+}
+
+.stream-table {
+    margin-left: 0 !important; 
+}
+
+.stream-table tbody {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.stream-table tbody tr {
+    width:var(--min-width);
+    height:var(--height);
+    margin: 15px 30px 15px 0 !important;
+    box-shadow: rgba(0, 0, 0, 0.8) 0px 0px 10px 0px;
+    transition: .3s;
+    border: 1px solid rgba(241,194,80,0.10); (241,194,80)
+    background-color: var(--color);
+}
+
+.stream-table tr td {
+    padding: 0 !important;
+    height: 100% !important;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.stream-table tr a {
+    overflow: hidden;
+    margin-bottom: 20px;
+    height: 100%;
+
+    display: flex !important;
+    flex-direction: column;
+}
+
+a:focus {
+    outline: none;
+    outline-offset: unset;
+}
+
+a:focus, a:hover {
+    text-decoration: none;
+}
+
+.stream-table tr a p {
+    overflow: hidden;
+}
+
+.stream-table tr a div:last-child {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    padding: 0 20px;
+    overflow: hidden;
+}
+
+.xdget-block.xdget-container {
+ 
+}
+
+.stream-table tbody tr:hover {
+    background-color: !important;
+    box-shadow: 0px 10px 10px 0px #7DF9FF !important;
+}
+
+.stream-table tr td:hover {
+    background-color: inherit !important;
+}
+
+.stream-title {
+    font-weight: 300 !important;
+    letter-spacing: normal;
+    font-size: 1.0em;
+    color: initial !important;
+    margin-bottom: 4px;
+    display: block;
+    padding: 20px 20px 0;
+    transition: all 0.5s ease-out;
+}
+
+.stream-table tbody tr:hover .stream-title {
+    font-size: 1.5em;
+    
+}
+
+.stream-table tr a div {
+    font-family: 'Roboto', sans-serif !important; 
+    font-weight: 300 !important;
+    letter-spacing: normal;
+}
+
+.stream-table tr a div b{
+    margin-bottom: 4px;
+    opacity: 0.6;
+}
+
+@media screen and (max-width: 991px) {
+    .stream-table tbody tr {
+        margin: 15px auto !important;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .stream-table tbody tr {
+        margin: 15px auto !important;
+        width: 100%;
+    }
+}
