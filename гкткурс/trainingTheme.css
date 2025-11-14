@@ -1,0 +1,593 @@
+/*Оформление тренинга на ГК через темы*/
+
+/*Устанавливаем шрифты*/
+@font-face {
+    font-family: 'Gilroy';
+    src: url('/fileservice/file/download/h/5f7b252c22c5f710f63f95c7b1b8c237.otf/a/147/sc/59475') format('opentype'),
+        url('/fileservice/file/download/h/80361f55fdca9bbc4c55c05021c777d1.woff/a/185/sc/59475') format('woff');
+}
+
+:root {
+  --mainColor: #02367d;
+  --subColor: linear-gradient(270deg, #0B84EE 0%, #7DE6F0 100%);
+}
+
+.f-text,
+.f-header,
+.f-btn,
+.f-description,
+.f-desc,
+.f-name,
+.f-subheader,
+.title,
+html body, .form-control, .standart-page-content h1, h1, h2, h3, h4, .logo-text, .filter-block h4 {
+    font-family: 'Gilroy', sans-serif !Important;
+}
+
+/* Стили для фото профиля */
+.menu-item-profile .menu-item-icon {
+  border-radius: 100px;
+  width: 50px;
+  border: 3px solid #7DE6F0;
+}
+
+/* Цвет фона бокового меню */
+.gc-account-leftbar {
+  background: #02367d;
+}
+
+@media (max-width: 768px) /* цвет меню телефон */
+menu.scss:543.gc-account-leftbar .gc-account-user-menu {
+margin-bottom: 45px;
+background: #FFFFFF;
+width: 70px;
+height: 100%;
+}
+
+.gc-account-leftbar .gc-account-user-menu li a {
+  background: inherit;
+}
+
+/* Цвет фона картинки бокового меню при наведении */
+.gc-account-leftbar .gc-account-user-menu li a:hover {
+  background: linear-gradient(270deg, #0B84EE 0%, #7DE6F0 100%) !important;
+}
+
+/* Цвет активного пункта меню */
+.menu-item.active {
+  background: var(--subColor);
+}
+
+.menu-item.selected {
+  background: var(--subColor);
+}
+
+/* Цвет фона картинки бокового меню выбранного элемента */
+.gc-account-leftbar .gc-account-user-menu li.active a,
+.gc-account-leftbar .gc-account-user-menu li.selected a {
+  background: var(--subColor);
+}
+
+.gc-account-leftbar .gc-account-user-menu li a {
+  background: #102B39;
+}
+
+.gc-account-leftbar .gc-account-user-submenu-bar {
+  color: #ffffff;
+  background: #02367d !important;
+}
+
+.gc-account-user-submenu-bar .gc-account-user-submenu li {
+  position: realtive;
+}
+
+.gc-account-user-submenu-bar .gc-account-user-submenu li a {
+  position: relative !important;
+  z-index: 9999;
+  transition: all 0.3s;
+}
+
+.gc-account-user-submenu-bar .gc-account-user-submenu li::after {
+  content: "";
+  width: 0%;
+  height: 100%;
+  position: absolute;
+  background: var(--subColor);
+  top: 0;
+  left: 0;
+  transition: all 0.3s;
+  z-index: 0;
+}
+
+.gc-account-user-submenu-bar .gc-account-user-submenu li a:hover {
+  background: transparent;
+  color: #02367d;
+  z-index: 1;
+}
+
+.gc-account-user-submenu-bar .gc-account-user-submenu li:hover::after {
+  width: 100%;
+}
+
+.gc-account-leftbar .gc-account-user-menu li a {
+  background: inherit;
+}
+
+.gc-account-leftbar .gc-account-user-menu li {
+  border-bottom: none;
+}
+
+/* Блок кода для скрытия стандартных иконок бокового меню */
+.menu-item-notifications_button_small img.menu-item-icon,
+.menu-item-cms img.menu-item-icon,
+.menu-item-user img.menu-item-icon,
+.menu-item-tasks img.menu-item-icon,
+.menu-item-teach img.menu-item-icon,
+.menu-item-notifications img.menu-item-icon,
+.menu-item-sales img.menu-item-icon,
+.menu-item-chatium img.menu-item-icon {
+  display: none !important;
+}
+
+li.menu-item.menu-item-notifications_button_small a,
+li.menu-item.menu-item-cms a,
+li.menu-item.menu-item-teach a,
+li.menu-item.menu-item-user a,
+li.menu-item.menu-item-tasks a,
+li.menu-item.menu-item-notifications a,
+li.menu-item.menu-item-sales a,
+li.menu-item.menu-item-chatium a {
+  transition: all 0.3s;
+}
+
+/* Замена картинки бокового меню "Уведомления" */
+li.menu-item.menu-item-notifications_button_small a:after {
+  content: url("https://fs02.getcourse.ru/fileservice/file/download/a/59475/sc/35/h/703a405d44349d2a3e543e2be39121f4.png") !important;
+}
+
+li.menu-item.menu-item-knowledge_base a::after {
+content: "База знаний";
+    z-index: 1;
+    display: flex;
+}
+
+li.menu-item.menu-item-navigation a::after {
+content: "Навигация по курсу";
+    z-index: 1;
+    display: flex;  
+}
+
+li.menu-item.menu-item-chat a::after {
+content: "Чат с куратором";
+    z-index: 1;
+    display: flex;
+}
+
+li.menu-item.menu-item-workbook a::after {
+content: "Рабочая тетрадь";
+    z-index: 1;
+    display: flex; 
+}
+
+li.menu-item.menu-item-shop a::after {
+content: "Магазин курса";
+    z-index: 1;
+    display: flex;
+}
+
+/* Замена картинки бокового меню "Сайт" */
+li.menu-item.menu-item-cms a::before {
+  content: url("https://fs16.getcourse.ru/fileservice/file/download/a/59475/sc/300/h/debf9c04e89ca68a75074b5b7ad4c249.png") !important;
+}
+li.menu-item.menu-item-cms a::after {
+  content: "Сайт" !important;
+    margin-left: 4px;
+}
+
+/* Замена картинки бокового меню "Обучение" */
+li.menu-item.menu-item-teach a:before {
+  content: url("https://fs23.getcourse.ru/fileservice/file/download/a/59475/sc/248/h/45b07dcdd467478d742cbab2de843f46.png") !important;
+}
+li.menu-item.menu-item-teach a::after {
+  content: "Обучение" !important;
+}
+
+/* Замена картинки бокового меню "Пользователи" */
+li.menu-item.menu-item-user a:before {
+  content: url("https://fs19.getcourse.ru/fileservice/file/download/a/59475/sc/111/h/ff0a43455ae7928f6194915537ceb5c3.png") !important;
+}
+li.menu-item.menu-item-user a::after {
+  content: "Ученики" !important;
+}
+
+/* Замена картинки бокового меню "Задачи" */
+li.menu-item.menu-item-tasks a:before {
+  content: url("https://fs18.getcourse.ru/fileservice/file/download/a/59475/sc/211/h/c58c479fbc5879a854c0bde1288d19c0.png") !important;
+}
+li.menu-item.menu-item-tasks a::after {
+  content: "Задачи" !important;
+}
+
+/* Замена картинки бокового меню "Сообщения" */
+li.menu-item.menu-item-notifications a:before {
+  content: url("https://fs19.getcourse.ru/fileservice/file/download/a/59475/sc/386/h/09ee2bc982f3d26c2ae1bc86fca4b74f.png") !important;
+}
+li.menu-item.menu-item-notifications a::after {
+  content: "Сообщения" !important;
+}
+
+/* Замена картинки бокового меню "Продажи" */
+li.menu-item.menu-item-sales a:before {
+  content: url("https://fs19.getcourse.ru/fileservice/file/download/a/59475/sc/76/h/0af87593c847be8f5815288e4d258f21.png") !important;
+}
+li.menu-item.menu-item-sales a::after {
+  content: "Мои покупки" !important;
+  margin-left: 8px !important;
+}
+
+/* Замена картинки бокового меню "Приложение" */
+li.menu-item.menu-item-chatium a:before {
+  content: url("https://fs18.getcourse.ru/fileservice/file/download/a/59475/sc/99/h/d0b900b46090d1d99837785de11f4bb5.png") !important;
+}
+li.menu-item.menu-item-chatium a::after {
+  content: "Приложение GetCourse" !important;
+}
+
+.gc-account-leftbar .gc-account-user-menu li a {
+  display: table-cell;
+  vertical-align: middle;
+  color: white;
+  font-size: 10px;
+  font-weight: normal;
+  text-align: center;
+  width: 80px;
+  height: 70px;
+  padding-left: 5px;
+  padding-right: 4px;
+  padding-top: 5px;
+  padding-bottom: 4px;
+  line-height: 12px;
+}
+
+/* Цвет заголовка выпадающего меню */
+.gc-account-user-submenu-bar h3 {
+  color: #111;
+}
+
+/* Цвет шрифта выпадающего меню */
+.gc-account-user-submenu-bar .gc-account-user-submenu li a {
+  color: #ffffff;
+}
+
+/* Цвет фона выпадающего меню */
+.gc-account-leftbar .gc-account-user-submenu-bar {
+  background: #02367d !important;
+}
+
+.gc-account-user-submenu-bar h3 {
+  color: #fff;  
+}
+
+
+li.menu-item.active a::after {
+    color: color: #ffffff !important;
+}
+
+/* Модули */
+
+/* === Родительский контейнер === */
+.xdget-block.xdget-trainingList {
+    counter-reset: module-counter 0;
+    font-family: 'Montserrat', sans-serif;
+    width: 800px;
+    margin: 0 auto;
+}
+
+/* === Общие стили таблицы === */
+.stream-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 15px;
+    margin: 0;
+}
+.stream-table tr td {
+    padding: 0;
+    vertical-align: middle;
+    background: transparent;
+}
+
+/* === Стили одной строки-модуля === */
+.stream-table tr.training-row td {
+    display: flex;
+    align-items: center;
+    padding: 55px 25px;
+    background: #02367d;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    transition: transform 0.3s;
+}
+.stream-table tr.training-row:hover td {
+    transform: scale(1.03);
+    background: #02367d;
+}
+
+/* === Псевдо-элемент с лейблом «МОДУЛЬ N» === */
+.stream-table tr.training-row td::before {
+    counter-increment: module-counter;
+    content: "МОДУЛЬ " counter(module-counter);
+    background: linear-gradient(45deg, #02367d 0%, #7DE6F0 100%);
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 700;
+    padding: 18px 18px;
+    border-radius: 8px;
+    margin-right: 20px;
+    flex-shrink: 0;
+}
+
+/* === Заголовок модуля (текст) === */
+.stream-table tr.training-row .stream-title {
+    font-size: 22px;
+    color: #FFFFFF;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.stream-table tr a {
+    color: #fff !important;
+}
+
+/* === Ссылка на модуль (если нужно) === */
+.stream-table tr.training-row a {
+    display: block;
+    text-decoration: none;
+    width: 100%;
+}
+.stream-table tr.training-row a:hover .stream-title {
+    color: #7DE6F0;
+}
+
+/* === Мобильная адаптация === */
+@media (max-width: 480px) {
+    .xdget-block.xdget-trainingList {
+        width: 100%;
+        padding: 0 10px;
+    }
+    .stream-table {
+        border-spacing: 0 8px;
+    }
+    .stream-table tr.training-row td {
+        padding: 12px 15px;
+    }
+    .stream-table tr.training-row td::before {
+        font-size: 12px;
+        padding: 12px 12px;
+        margin-right: 12px;
+        border-radius: 6px;
+    }
+    .stream-table tr.training-row .stream-title {
+        font-size: 14px;
+    }
+}
+
+/* Уроки */
+
+        .lesson-list {
+            width: 810px;
+            background: #ffffff;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 4px 27.3px rgba(0, 0, 0, 0.25);
+            margin: 0 auto;
+            font-family: 'Montserrat', sans-serif;
+            list-style: none;
+            counter-reset: lesson-counter;
+        }
+        .lesson-list li .info {
+            border-left: 1px solid #ecf0f1;
+            padding-left: 10px;
+        }
+        .lesson-list li {
+            display: flex;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .lesson-list li {
+             transition:all 0.3s
+        }
+
+
+        .lesson-list li:hover {   
+    -webkit-transform: scale(1.05);
+        -ms-transform: scale(1.05);
+        transform: scale(1.05);
+        }
+
+        .lesson-list li:last-child {
+            border-bottom: none;
+        }
+
+        .lesson-list li::before {
+            counter-increment: lesson-counter;
+            content: "#" counter(lesson-counter);
+            background: linear-gradient(45deg, #0B84EE 0%, #7DE6F0 100%);
+            color: #ffffff;
+            font-weight: 600;
+            font-size: 38px;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 15px;
+            margin-right: 0px;
+            flex-shrink: 0;
+        }
+
+        .lesson-list li a {
+            display: block;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            text-decoration: none;
+            color: #02367d;
+            font-size: 14px;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .lesson-list li a:hover {
+            color: #7DE6F0;
+        }
+
+        .lesson-list li .lesson-list__video-watched {
+            color: #666;
+            font-size: 12px;
+            font-weight: 400;
+            flex-shrink: 0;
+        }
+
+            .glyphicon.glyphicon-list-alt {
+                 display: none;
+            }
+
+        /* Адаптация для мобильных */
+        @media (max-width: 480px) {
+            .lesson-list {
+                width: 100%;
+                padding: 10px;
+            }
+
+            .lesson-list li::before {
+                width: 25px;
+                height: 25px;
+                font-size: 12px;
+                border-radius: 5px;
+                margin-right: 5px;
+            }
+
+            .lesson-list li a {
+                font-size: 12px;
+            }
+
+            .lesson-list li .lesson-list__video-watched {
+                font-size: 10px;
+            }
+        }
+
+.state-icon-block.hidden-xs {
+    display: none;
+}
+
+.user-state-has_mission .user-state-bg {
+    background: #ffffff;
+}
+
+.user-state-not_reached .user-state-bg {
+    background: transparent;
+}
+
+.lesson-list li.user-state-not_reached .info {
+    background: transparent;
+}
+
+.user-state-accomplished .user-state-bg {
+    background: transparent;
+}
+
+.user-state-answered .user-state-bg {
+    background: transparent;
+}
+
+.user-state-need_accomplish .user-state-bg {
+    background: transparent;
+}
+        
+
+.modulsGetcourse {
+    transition:all 0.3s
+}
+
+.modulsGetcourse:hover {   
+    -webkit-transform: scale(1.05);
+        -ms-transform: scale(1.05);
+        transform: scale(1.05);
+}
+
+/* ШКАЛА ДОСТИЖЕНИЙ */
+.xdget-trainingAchievements {
+  padding: 20px 20px 10px 20px;
+  margin: 0 auto;
+  border-radius: 12px;
+  max-width: 440px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Заголовок блока */
+.xdget-trainingAchievements .table>thead>tr>th {
+  border: 0;
+  padding: 0 0 15px 0;
+  font-size: 0;
+  font-weight: 700;
+  text-align: center;
+  vertical-align: middle;
+  text-transform: uppercase;
+  color: #333333;
+}
+
+/* Меняем строку заголовка */
+.xdget-trainingAchievements .table>thead>tr>th::before {
+  content: 'Мои монеты';
+  font-size: 20px;
+}
+
+
+.xdget-trainingAchievements .table>tbody>tr>td {
+  padding: 10px 0 10px 0;
+  vertical-align: middle;
+}
+
+.xdget-trainingAchievements .table>tbody>tr>td a {
+  font-size: 16px;
+  color: #242240;
+}
+
+/* Элемент с отображением баллов */
+.xdget-trainingAchievements .badge {
+  margin: 0 !important;
+  padding: 4px 12px;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 20px;
+
+  /* Цвет плашки с баллами */
+  background-color: var(--subColor);
+}
+
+
+@media (max-width:400px) {
+  .xdget-trainingAchievements {
+    padding: 15px 15px 10px 15px;
+  }
+
+  .xdget-trainingAchievements .table>thead>tr>th {
+    padding: 0 0 10px 0;
+  }
+
+
+  .xdget-trainingAchievements .table>thead>tr>th::before {
+    font-size: 18px;
+  }
+
+  .xdget-trainingAchievements .table>tbody>tr>td a {
+    font-size: 14px;
+  }
+
+  .xdget-trainingAchievements .badge {
+    font-size: 12px;
+    padding: 3px 8px;
+  }
+}
+/*ШКАЛА ДОСТИЖЕНИЙ*/
