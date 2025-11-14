@@ -1,0 +1,100 @@
+/* новые выделения */
+
+/* Сетка с плитками */
+.builder-item.part-manyPositions {
+    font-size: 0; /* убираем пробелы между inline-блоками */
+}
+
+/* Базовый вид плитки */
+.builder-item.part-manyPositions .form-position {
+    display: inline-flex !important;
+    vertical-align: top;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+
+    width: 19% !important;              /* ~5 в ряд на десктопе */
+    margin: 0 0.5% 10px !important;
+    padding: 8px 10px !important;
+
+    min-height: 60px;                   /* высота, но можно расти, если текста больше */
+    background: #ffffff;
+
+    border: 1px solid #D0D0D0 !important;  /* серая рамка по умолчанию */
+    border-radius: 12px;
+
+    cursor: pointer;
+    text-align: center;
+
+    transition: border-color .2s, background-color .2s, box-shadow .2s;
+}
+
+/* Текст внутри плитки */
+.builder-item.part-manyPositions .form-position-title,
+.builder-item.part-manyPositions .offer-title {
+    width: 100%;
+    font-size: 12px;
+    line-height: 1.25;
+    padding: 0 4px;
+    text-align: center;
+
+    white-space: normal;
+    word-wrap: break-word; /* чтобы длинные слова не вылазили за рамку */
+}
+
+/* Ховер — мягкая подсветка */
+.builder-item.part-manyPositions .form-position:hover {
+    background: #f6f6f6;
+}
+
+/* Выбранная плитка — красная рамка */
+.builder-item.part-manyPositions .form-position.selected {
+    border-color: #E64524 !important;
+    border-width: 2px !important;
+    background: #FFF7F6;
+}
+
+/* Убираем чекбокс и цены */
+.builder-item.part-manyPositions .form-position-checker,
+.builder-item.part-manyPositions .form-position-price,
+.builder-item.part-manyPositions .final-price {
+    display: none !important;
+}
+
+/* Чуть подправим старые float-ы */
+.builder-item.part-manyPositions .form-position .pull-left,
+.builder-item.part-manyPositions .form-position .pull-right {
+    float: none !important;
+}
+
+/* --- Адаптив --- */
+
+/* Планшет/мобильный — делаем плитки крупнее и по 3 в ряд */
+@media (max-width: 900px) {
+    .builder-item.part-manyPositions .form-position {
+        width: 32% !important;          /* 3 в ряд */
+        margin: 0 0.66% 10px !important;
+        min-height: 72px;
+        padding: 10px 8px !important;
+    }
+
+    .builder-item.part-manyPositions .form-position-title,
+    .builder-item.part-manyPositions .offer-title {
+        font-size: 12px;
+    }
+}
+
+/* Совсем узкие экраны — всё то же, но ещё немного воздуха по высоте */
+@media (max-width: 600px) {
+    .builder-item.part-manyPositions .form-position {
+        min-height: 80px;
+        padding: 10px 6px !important;
+    }
+
+    .builder-item.part-manyPositions .form-position-title,
+    .builder-item.part-manyPositions .offer-title {
+        font-size: 11px;
+    }
+}
+
+/* Конец новых выделений */
