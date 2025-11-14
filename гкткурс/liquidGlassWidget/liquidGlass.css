@@ -1,0 +1,61 @@
+/* фон виджета */
+.lt-block-wrapper {
+  position: relative;
+  /* Почти полностью прозрачный фон для чёткого вида позади */
+  background: rgba(255, 255, 255, 0.02);
+  /* Слегка размываем, но не матово — чтобы сохранялась чёткость */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 20px;
+  overflow: hidden;
+  /* Лёгкая тень под блоком, чтобы он «парил» */
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.06),
+    /* инсет-тени для светотени граней (свет сверху/слева, тень снизу/справа) */
+    inset 0 1px 2px rgba(255, 255, 255, 0.5),
+    inset 0 -1px 2px rgba(0, 0, 0, 0.15),
+    inset 1px 0 2px rgba(255, 255, 255, 0.5),
+    inset -1px 0 2px rgba(0, 0, 0, 0.15);
+}
+
+/* Чёткий глянец-блик сверху */
+.lt-block-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  /* Узкая полоса блика под углом */
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.8) 0%,
+    rgba(255, 255, 255, 0) 30%
+  );
+  pointer-events: none;
+}
+
+/* Тонкий градиент света по краю */
+.lt-block-wrapper::after {
+  content: '';
+  position: absolute;
+  top: -2px; left: -2px; bottom: -2px; right: -2px;
+  border-radius: inherit;
+  /* белый полупрозрачный градиент вдоль края для легкой подсветки */
+  background: conic-gradient(
+    from 0deg,
+    rgba(255,255,255,0.3),
+    rgba(255,255,255,0) 40%,
+    rgba(255,255,255,0) 60%,
+    rgba(255,255,255,0.3)
+  );
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0) padding-box;
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* В тилде на сайте: */
+#rec1171217711 .t-popup__container {
+  background-color: transparent !important;
+}
