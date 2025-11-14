@@ -1,0 +1,21 @@
+.audio-player {
+  width: 100%;
+  max-width: 420px;
+  margin: 16px auto;
+  padding: 14px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background: #f9f9f9;
+  box-sizing: border-box;
+}
+.audio-player audio {
+  display: block;
+  width: 390px;
+}
+@media (max-width: 480px) {
+  .audio-player {
+    margin: 12px auto;
+    padding: 10px;
+    border-radius: 8px;
+  }
+}
