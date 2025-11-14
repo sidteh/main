@@ -1,0 +1,87 @@
+/* Превью */
+.video-preview {
+  position: relative;
+  max-width: 900px;
+  margin: 24px auto;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,.35);
+}
+.video-preview video { display:block; width:100%; height:auto; }
+
+.muted-badge, .click-hint {
+  position: absolute;
+  background: rgba(0,0,0,.55);
+  backdrop-filter: blur(6px);
+  padding:6px 10px;
+  border-radius:999px;
+  font-size:12px;
+  color:#ffffff;
+}
+.muted-badge { left:12px; bottom:12px; }
+.click-hint  { right:12px; bottom:12px; border-radius:10px; }
+
+/* Кнопка Play по центру */
+.btn-play {
+  all: unset;
+  position:absolute; inset:0;
+  display:grid; place-items:center;
+  cursor: pointer;
+}
+.btn-play::before {
+  content:"";
+  width:84px; height:84px; border-radius:50%;
+  background: radial-gradient(circle at 30% 30%, #ffffff, #d8d8d8 60%, #bdbdbd);
+  box-shadow: 0 10px 30px rgba(0,0,0,.35);
+  display:grid; place-items:center;
+  opacity:.9;
+  mask: radial-gradient(circle 42px at center, #0000 41px, #000 42px);
+}
+.btn-play::after {
+  content:"";
+  position:absolute;
+  width:0; height:0;
+  border-left:22px solid #111;
+  border-top:14px solid transparent;
+  border-bottom:14px solid transparent;
+}
+
+/* Модалка */
+.modal {
+  position:fixed; inset:0; background: rgba(0,0,0,.6);
+  display:none; align-items:center; justify-content:center;
+  padding:24px; z-index:2147483647;
+}
+.modal.open { display:flex; }
+
+.modal__card {
+  width:min(1080px, 96vw);
+  background:#121214; border-radius:20px; overflow:hidden;
+  box-shadow: 0 30px 80px rgba(0,0,0,.6);
+  border:1px solid rgba(255,255,255,.08);
+}
+
+.modal__video-wrap video { width:100%; height:auto; display:block; }
+
+/* Топбар */
+.modal__topbar {
+  display:flex; align-items:center; gap:12px; padding:10px 14px;
+  background: rgba(255,255,255,.04);
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+.modal__topbar strong { color:#ffffff; } /* белый текст по запросу */
+.spacer { flex:1; }
+
+/* Кнопка закрыть */
+.btn-clouse {
+  appearance:none; border:1px solid rgba(255,255,255,.2);
+  background:rgba(255,255,255,.06);
+  color:#fff; padding:8px 12px; border-radius:10px; cursor:pointer;
+}
+.btn-clouse:hover { background:rgba(255,255,255,.12); }
+
+/* Блокируем контекстное меню и выделение */
+video, .video-preview { -webkit-touch-callout:none; user-select:none; }
+
+/* + блокировка прокрутки при открытой модалке */
+body.modal-open { overflow: hidden; }
